@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala de Aula de T.I. - HS 10</title>
+    <style>
+        /* Estilos gerais */
+        :root {
+            --azul-primario: #1a5276;
+            --azul-secundario: #3498db;
+            --laranja-primario: #e67e22;
+            --laranja-secundario: #f39c12;
+            --branco: #ffffff;
+            --cinza-claro: #f5f5f5;
+            --cinza-escuro: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--cinza-claro);
+            color: var(--cinza-escuro);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--azul-primario);
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            /* width: 150px; */
+            height: 8vh;
+            border-radius: 50%;
+        }
+
+        /* Carrossel */
+        .carousel {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background-color: white;
+        }
+
+        .carousel-inner {
+            display: flex;
+            width: 200%;
+            height: 100%;
+            transition: transform 0.8s ease-in-out;
+            position: relative;
+        }
+
+        .carousel-item {
+            width: 50%;
+            height: 100%;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+        
+        /* Media queries para responsividade */
+        @media (max-width: 768px) {
+            .carousel {
+                height: 300px;
+            }
+            
+            .carousel-item {
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .carousel {
+                height: 200px;
+            }
+            
+            .carousel-item {
+                background-size: cover;
+            }
+        }
+
+        /* Seção de artigos */
+        .articles-section {
+            padding: 50px 0;
+            background-color: var(--branco);
+        }
+
+        .articles-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .article {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--branco);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .article:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article-title {
+            color: var(--azul-primario);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .article-text {
+            color: var(--cinza-escuro);
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--azul-primario);
+            color: var(--branco);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .developers {
+            margin-bottom: 15px;
+        }
+
+        .developers-list {
+            font-weight: bold;
+            color: var(--laranja-primario);
+        }
+
+        .date {
+            font-style: italic;
+        }
+
+        .titulo {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header com logo à esquerda -->
+    <header>
+        <div class="container header-container">
+            <img src="assets/img/logo.jpg" alt="Logo HS10" class="logo">
+        <h1 class="titulo"> HS 10 </h1>
+
+        </div>
+
+    </header>
+
+    <!-- Carrossel de imagens -->
+    <div class="container">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img src="assets/img/sala hs10 banner.jfif" alt="Sala HS10" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/img/banner 3.jfif" alt="Banner 2" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <div class="carousel-dot active" data-slide="0"></div>
+                <div class="carousel-dot" data-slide="1"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção de artigos -->
+    <section class="articles-section">
+        <div class="container">
+            <div class="articles-container">
+                <article class="article">
+                    <img src="assets/img/_image.webp" alt="Imagem do Artigo 1" class="article-img">
+                    <div class="article-content">
+                        <h2 class="article-title">Tecnologia na Educação</h2>
+                        <p class="article-text">A integração da tecnologia na educação tem transformado a forma como os alunos aprendem e interagem com o conteúdo. Nossas salas de aula de T.I. são equipadas com os mais modernos recursos tecnológicos para proporcionar uma experiência de aprendizado imersiva e eficaz.</p>
+                    </div>
+                </article>
+                <article class="article">
+                    <img src="assets/img/Formação Profissional.jpg" alt="Imagem do Artigo 2" class="article-img">
+                    <div class="article-content">
+                        <h2 class="article-title">Formação Profissional</h2>
+                        <p class="article-text">Nosso programa de formação em T.I. prepara os alunos para os desafios do mercado de trabalho atual. Com foco em habilidades práticas e conhecimentos teóricos sólidos, garantimos que nossos estudantes estejam prontos para iniciar suas carreiras com confiança e competência.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer com nomes dos desenvolvedores e data -->
+    <footer>
+        <div class="container">
+            <div class="developers">
+                <p>Desenvolvido por:</p>
+                <p class="developers-list">Bianca Gomes, Caroline Macial, Davi dos Santos, Jhennifer Cristina, Matheus Teles e Paulo Moraes</p>
+            </div>
+            <div class="date">
+                <p>Turma HS 10 - 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para o carrossel -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselInner = document.querySelector('.carousel-inner');
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            const carouselDots = document.querySelectorAll('.carousel-dot');
+            let currentSlide = 0;
+            const totalSlides = carouselItems.length;
+            let slideInterval;
+            
+            // Verificar se as imagens estão sendo carregadas corretamente
+            console.log('Total de slides:', totalSlides);
+            carouselItems.forEach((item, index) => {
+                console.log(`Slide ${index} - URL da imagem:`, item.style.backgroundImage);
+            });
+            
+            // Função para ir para um slide específico
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                updateCarousel();
+                updateDots();
+            }
+            
+            // Função para ir para o próximo slide
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                console.log('Mudando para o slide:', currentSlide);
+                updateCarousel();
+                updateDots();
+            }
+            
+            // Função para atualizar a posição do carrossel
+            function updateCarousel() {
+                const slideWidth = -currentSlide * 50;
+                carouselInner.style.transform = `translateX(${slideWidth}%)`;
+                console.log('Posição do carrossel atualizada:', slideWidth + '%');
+            }
+            
+            // Função para atualizar os pontos de navegação
+            function updateDots() {
+                carouselDots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Adicionar eventos de clique aos pontos de navegação
+            carouselDots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    goToSlide(index);
+                    // Reiniciar o intervalo quando o usuário clica em um ponto
+                    clearInterval(slideInterval);
+                    slideInterval = setInterval(nextSlide, 3000);
+                });
+            });
+            
+            // Inicializar o carrossel
+            updateCarousel();
+            updateDots();
+            
+            // Mudar slide a cada 3 segundos
+            slideInterval = setInterval(nextSlide, 3000);
+            
+            // Ajustar o carrossel quando a janela for redimensionada
+            window.addEventListener('resize', updateCarousel);
+        });
+    </script>
+</body>
+</html>
